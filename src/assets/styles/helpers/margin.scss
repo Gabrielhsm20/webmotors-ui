@@ -1,0 +1,59 @@
+@each $side in a, t, r, b, l {
+  @for $i from 0 through 10 {
+    $margin: calc(#{$i} * 4px);
+
+    @if $side == a {
+      .m#{$side}-#{$i} {
+        margin: $margin;
+      }
+    } @else if $side == t {
+      .m#{$side}-#{$i} {
+        margin-top: $margin;
+      }
+    } @else if $side == r {
+      .m#{$side}-#{$i} {
+        margin-right: $margin;
+      }
+    } @else if $side == b {
+      .m#{$side}-#{$i} {
+        margin-bottom: $margin;
+      }
+    } @else if $side == l {
+      .m#{$side}-#{$i} {
+        margin-left: $margin;
+      }
+    }
+  }
+}
+
+@each $size, $abbr in (0, xs), (768px, sm), (992px, md), (1200px, lg) {
+  @media (min-width: $size) {
+    @each $side in a, t, r, b, l {
+      @for $i from 0 through 10 {
+        $margin: calc(#{$i} * 4px);
+
+        @if $side == a {
+          .m#{$side}-#{$abbr}-#{$i} {
+            margin: $margin;
+          }
+        } @else if $side == t {
+          .m#{$side}-#{$abbr}-#{$i} {
+            margin-top: $margin;
+          }
+        } @else if $side == r {
+          .m#{$side}-#{$abbr}-#{$i} {
+            margin-right: $margin;
+          }
+        } @else if $side == b {
+          .m#{$side}-#{$abbr}-#{$i} {
+            margin-bottom: $margin;
+          }
+        } @else if $side == l {
+          .m#{$side}-#{$abbr}-#{$i} {
+            margin-left: $margin;
+          }
+        }
+      }
+    }
+  }
+}
